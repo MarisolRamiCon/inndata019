@@ -1,6 +1,13 @@
 package com.example.ejercicioClase.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor //anotation de lombok para el constructor sin argumentos
+@AllArgsConstructor //anotation de lombok para el constructor con todos los argumentos
+@Data //getter y setter
 
 @Entity
 @Table(name = "departamento")
@@ -13,39 +20,9 @@ public class DepartamentoEntity {
     private Integer m2;
     @Column(name = "precio")
     private Double precio;
+    @Column(name = "activo")
+    private Boolean activo=true;
 
-    public DepartamentoEntity() {
-    }
-
-    public DepartamentoEntity(Integer id, Integer m2, Double precio) {
-        this.id = id;
-        this.m2 = m2;
-        this.precio = precio;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public Integer getM2() {
-        return m2;
-    }
-
-    public void setM2(Integer m2) {
-        this.m2 = m2;
-    }
-
-    public Double getPrecio() {
-        return precio;
-    }
-
-    public void setPrecio(Double precio) {
-        this.precio = precio;
-    }
 
 
 }
