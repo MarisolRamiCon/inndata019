@@ -67,4 +67,14 @@ public class DepartamentoService implements IDepartamentoService {
 
     }
 
+    @Override
+    public List<DepartamentoEntity> m2AndPrecio(Integer m2, Double precio) {
+        return departamentoRepository.findByM2LessThanAndPrecioLessThan(m2,precio);
+    }
+
+    @Override
+    public List<DepartamentoEntity> m2AndPrecioQ(Integer m2, Double precio) {
+        return departamentoRepository.m2AndPrecioQuery(m2,precio);
+    }
+
 }

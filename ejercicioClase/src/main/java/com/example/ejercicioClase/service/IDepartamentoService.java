@@ -14,4 +14,7 @@ public interface IDepartamentoService {
     public DepartamentoEntity create(DepartamentoEntity departamento);
     public String updateById(Integer id, DepartamentoEntity departamento);
     public String deleteById(Integer id);
+
+    public List<DepartamentoEntity> m2AndPrecio(Integer m2, Double precio);
+    public List<DepartamentoEntity> m2AndPrecioQ(Integer m2, Double precio);
 }
