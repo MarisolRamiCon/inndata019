@@ -17,7 +17,7 @@ public class DepartamentoService implements IDepartamentoService {
 
     @Override
     public List<DepartamentoEntity> readAll() {
-        return departamentoRepository.findAll();
+        return departamentoRepository.findAll().stream().filter(departamento -> departamento.getActivo()).toList();
     }
 
     @Override
@@ -57,8 +57,10 @@ public class DepartamentoService implements IDepartamentoService {
     public String deleteById(Integer id) {
         Optional<DepartamentoEntity> departamentoABorrar = departamentoRepository.findById(id);
         if(departamentoABorrar.isPresent()){
-            departamentoRepository.deleteById(id);
-            return "Departamento borrado fisicamente";
+            DepartamentoEntity departamento = departamentoABorrar.get();
+            departamento.setActivo(false);
+            departamentoRepository.save(departamento);
+            return "Departamento borrado";
         }else{
             return "No hay tal departamento";
         }
