@@ -21,6 +21,5 @@ public class PersonaService implements IPersonaService {
                     return personaResponse;
                 }
         ).toList();
-
     }
 }
