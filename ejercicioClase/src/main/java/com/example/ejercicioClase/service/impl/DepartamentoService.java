@@ -49,8 +49,6 @@ public class DepartamentoService implements IDepartamentoService {
             log.error("Error en readById departamento", e);
             throw new RuntimeException(e.getMessage(), e);
         }
-
-
     }
 
     @Override
