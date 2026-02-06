@@ -1,6 +1,9 @@
 package com.example.ejercicioClase.controller;
 
 import com.example.ejercicioClase.entity.DepartamentoEntity;
+import com.example.ejercicioClase.model.reponse.DepartamentoResponse;
+import com.example.ejercicioClase.model.request.DepartamentoRequest;
+import com.example.ejercicioClase.service.IDepartamentoService;
 import com.example.ejercicioClase.service.impl.DepartamentoService;
 import jakarta.websocket.server.PathParam;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,9 +15,9 @@ import java.util.List;
 @RequestMapping("/api/v1")
 public class DepartamentoController {
     @Autowired
-    DepartamentoService departamentoService;
+    IDepartamentoService departamentoService;
     @GetMapping("/departamentos")
-    public List<DepartamentoEntity> readAll(){
+    public List<DepartamentoResponse> readAll(){
         return departamentoService.readAll();
     }
     @GetMapping("/departamentos/{id}")
@@ -23,7 +26,7 @@ public class DepartamentoController {
 
     }
     @PostMapping("/departamentos") //Annotation para crear
-    public DepartamentoEntity create(@RequestBody DepartamentoEntity departamento){
+    public DepartamentoResponse create(@RequestBody DepartamentoRequest departamento){
         return departamentoService.create(departamento);
     }
     //Actualizar
